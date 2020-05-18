@@ -20,8 +20,8 @@ def bsearch(list, val):
     else:
         idxn = midval - 1
 
-if idx0 > idxn:
-    return None
+		if idx0 > idxn:
+   			return None
 
 # Initialize the sorted list
 list = [2, 7, 19, 34, 53, 72]

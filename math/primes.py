@@ -1,17 +1,18 @@
 #!/usr/local/bin/python
 #-*- coding: utf-8 -*-
 
-def primes(n):
-    a, b = 2, 3
-    data = []
-    c = b
-    while c < n:
-        c = a * b + 1
-        a = b
-        b = c
-        data.append(c)
-    return data
+from math import sqrt
 
-N = 1e10
-data = primes(N)
-print(data)
+def is_prime(n):
+	root = int(round(sqrt(n)) + 1)
+	for trial_factor in range(2, root):
+		if n % trial_factor == 0:
+			return False
+	return True
+
+def main():
+	max_value = int(input("Display primes up to what value? "))
+	for v in range(2, max_value + 1):
+		if is_prime(v): print(v)
+
+main()

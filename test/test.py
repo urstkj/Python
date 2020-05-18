@@ -1,16 +1,30 @@
-#!/usr/local/bin/python
+#!/usr/local/bin/python3
 #-*- coding: utf-8 -*-
 
-def isPrime(num):
-    isPrime = True
-    for i in range(2, int(num / 2) + 1):
-        if num % i == 0:
-            isPrime = False
-            break
-    return isPrime
+class Parent:        # define parent class
+   parentAttr = 100
+   def __init__(self):
+      print("Parent.__init__()...")
 
-for num in range(2, 100):
-    if isPrime(num):
-        print("%d\t" % num, end='')
+   def parentMethod(self):
+      print('Parent.parentMethod()...')
 
-print("\n")
+   def setAttr(self, attr):
+      Parent.parentAttr = attr
+
+   def getAttr(self):
+      print("Parent attribute :", Parent.parentAttr)
+
+class Child(Parent): # define child class
+   def __init__(self):
+       super().__init__()
+       print("Child.__init__()...")
+
+   def childMethod(self):
+      print('Child.childMethod()...')
+
+c = Child()          # instance of child
+c.childMethod()      # child calls its method
+c.parentMethod()     # calls parent's method
+c.setAttr(200)       # again call parent's method
+c.getAttr()          # again call parent's method

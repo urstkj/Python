@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/local/bin/python3
 #-*- coding: utf-8 -*-
 
 import random
@@ -23,7 +23,7 @@ class Person(Being):
     FEMALE = 0
 
     def __init__(self, name, age, gender):
-        super(Person, self).__init__(name)
+        super().__init__(name)
         self.age = age
         self.gender = gender
         Person.PERSON_COUNT += 1
@@ -35,7 +35,7 @@ class Animal(Being):
     ANIMAL_COUNT = 0
 
     def __init__(self, name, type):
-        super(Animal, self).__init__(name)
+        super().__init__(name)
         self.type = type
         Animal.ANIMAL_COUNT += 1
 
