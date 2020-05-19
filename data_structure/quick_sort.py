@@ -23,4 +23,4 @@ if __name__ == "__main__":
     print 'sorting...'
     sorted = quick_sort(data)
     print 'complete with time cost: ' + str(time() - start) + " seconds"
-    print 'checking...' + str(funs.check(sorted))
+    print 'checking...' + str(funs.isSorted(sorted))

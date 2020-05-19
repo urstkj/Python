@@ -1,5 +1,7 @@
 #!/usr/local/bin/python
 
+import funs
+
 class MaxHeap:
 
 	def __init__(self, maxSize):
@@ -61,17 +63,6 @@ class MaxHeap:
 			if r < self.capacity(): q.append(r)
 		print ",".join(s)
 		
-	def verify(self, index):
-		l = index * 2 + 1
-		r = l + 1
-		if l < self.capacity():
-			if self._elements[index] < self._elements[l]: return False
-			if not self.verify(l): return False
-		if r < self.capacity():
-			if self._elements[index] < self._elements[r]: return False
-			if not self.verify(r): return False
-		return True	
-
 	def __iter__(self):
 		self._index = 0
 		return self
@@ -99,13 +90,12 @@ if __name__ == "__main__":
 		heap.add(random.randint(0, LEN))
 	print heap
 	heap.show()
-	print "verify..." + str(heap.verify(0))
+	print "verify..." + str(funs.isHeap(heap._elements, 0))
 	data = []
 	print "generating data..."
 	for _ in range(LEN):
 		data.append(random.randint(0, LEN))
-	print data
 	print "sorting..."
 	simpleHeapSort(data)
 	print "complete"
-	print data
+	print "is sorted..." + str(funs.isSorted(data))

@@ -2,6 +2,7 @@
 
 import random
 from time import time
+import funs
 
 def sort(data, numDigits):
     queues = [[] for _ in range(10)]
@@ -20,12 +21,6 @@ def sort(data, numDigits):
 
         column *= 10
 
-def check(data):
-    for i in range(1, len(data)):
-        if data[i - 1] > data[i]: return False
-    return True
-
-
 LEN = int(1e5)
 print "generating..."
 data = [random.randint(0, LEN) for _ in range(LEN)]
@@ -34,5 +29,4 @@ print "sorting..."
 sort(data, 6)
 print "complete."
 print "time: " + str(time() - start) + " seconds"
-print "checking..."
-print check(data)
+print "checking..." + str(funs.isSorted(data))

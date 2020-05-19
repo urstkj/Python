@@ -2,6 +2,7 @@
 #-*- coding: utf-8 -*-
 
 import random
+import funs
 
 def quick_sort(list):
     if len(list) <= 1:
@@ -31,12 +32,6 @@ def quick_sort_lamda(list):
     sort(list)
     return list
 
-def validata(list):
-    for i in range(len(list) - 1):
-        if list[i] > list[i + 1]:
-            return False
-    return True
-
 def generate_data():
     NUM = 100
     data = [int(random.random() * NUM) for _ in range(NUM)]
@@ -49,4 +44,4 @@ if __name__ == "__main__":
         print("Total: %d" % len(data))
         print("Testing %s..." % fun)
         sorted_data = fun(data)
-        print("Validating...%s...total: %d" % (validata(sorted_data), len(sorted_data)))
+        print("Validating...%s...total: %d" % (funs.isSorted(sorted_data), len(sorted_data)))

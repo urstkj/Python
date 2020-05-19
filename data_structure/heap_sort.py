@@ -6,38 +6,39 @@ import random
 from time import time
 import funs
 
-def heapify(arr, n, i):
+def heapify(data, n, i):
     # Find largest among root and children
     largest = i
     l = 2 * i + 1
-    r = 2 * i + 2
+    r = l + 1
 
-    if l < n and arr[i] < arr[l]:
+    if l < n and data[i] < data[l]:
         largest = l
 
-    if r < n and arr[largest] < arr[r]:
+    if r < n and data[largest] < data[r]:
         largest = r
 
     # If root is not largest, swap with largest and continue heapifying
     if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]
-        heapify(arr, n, largest)
+        data[i], data[largest] = data[largest], data[i]
+        heapify(data, n, largest)
 
-def heapSort(arr):
-    n = len(arr)
+def heapSort(data):
+    n = len(data)
 
     # Build max heap
     for i in range(n//2, -1, -1):
-        heapify(arr, n, i)
+        heapify(data, n, i)
 
-    # show_tree(arr)
+    # show_tree(data)
+    print "verify heap..." + str(funs.isHeap(data, 0))
 
     for i in range(n-1, 0, -1):
         # Swap
-        arr[i], arr[0] = arr[0], arr[i]
+        data[i], data[0] = data[0], data[i]
 
         # Heapify root element
-        heapify(arr, i, 0)
+        heapify(data, i, 0)
 
 def show_tree(tree, total_width=60, fill=' '):
     """Pretty-print a tree.
@@ -68,4 +69,4 @@ if __name__ == "__main__":
     start = time()
     heapSort(data)
     print 'complete with time cost: ' + str(time() - start) + " seconds."
-    print 'verifying...' + str(funs.check(data))
+    print 'verifying...' + str(funs.isSorted(data))

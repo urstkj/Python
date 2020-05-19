@@ -1,5 +1,8 @@
 #!/usr/local/bin/python
 
+import funs
+import random
+
 def shellSort(array, n):
 
     # Rearrange elements at each n/2, n/4, n/8, ... intervals
@@ -14,8 +17,10 @@ def shellSort(array, n):
             array[j] = temp
 
 
-data = [9, 8, 2, 1, 3, 6, 7, 2, 3, 1, 7, 3, 7, 5, 6, 4, 1]
-size = len(data)
-shellSort(data, size)
-print('Sorted Array in Ascending Order:')
-print(data)
+LEN = int(1e4)
+print 'generating...'
+data = [random.randint(0, LEN) for _ in range(LEN)]
+print 'sorting...'
+shellSort(data, len(data))
+print 'complete.'
+print 'checking...' + str(funs.isSorted(data))
