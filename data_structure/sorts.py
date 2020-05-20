@@ -33,7 +33,7 @@ def quick_sort_lamda(list):
     return list
 
 def generate_data():
-    NUM = 100
+    NUM = int(1e3)
     data = [int(random.random() * NUM) for _ in range(NUM)]
     return data
 
