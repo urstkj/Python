@@ -103,6 +103,7 @@ if __name__ == "__main__":
     print((" this result is {}, expected to be {}". format (
           thisresult, correct_result)))
     # compare with correct result
+    print("running...")
     assert thisresult == correct_result
     # also check all other methods
     assert compute_sum2 (m) == correct_result
@@ -114,4 +115,6 @@ if __name__ == "__main__":
     assert compute_sum4e (m) == correct_result
     assert compute_sum5 (m) == correct_result
     # a more systematic check for many values
+    print("Testing consistency...")
     test_consistency ()
+    print("done")
